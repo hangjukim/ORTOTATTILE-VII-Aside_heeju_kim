@@ -281,6 +281,11 @@ tw-passage .tr-grid{ text-align:center; }
 .tr-intro-t{font-size:clamp(14px,2.1vw,23px);letter-spacing:.07em;line-height:2.2;}
 @keyframes tr-introfade{0%{opacity:0}12%{opacity:1}62%{opacity:1}100%{opacity:0}}
 
+/* ===== 배경 누수 차단 (html/body가 흰색으로 비치는 문제) ===== */
+html, body{ background-color:#000 !important; transition: background-color 3s ease; }
+body.ph-entrance, body.ph-A, body.ph-B, body.ph-C, body.ph-settle{ background-color:#ffffff !important; }
+body.ph-corridor{ background-color:#050303 !important; }
+
 /* ===== 2026-09-19 모바일 조정 : 본문 축소 · 상단 여백 축소 · 서명 비겹침 ===== */
 .tr-sig{
   bottom: calc(1.1em + env(safe-area-inset-bottom, 0px)) !important;
@@ -291,10 +296,16 @@ html tw-story{ padding-bottom: 7.5em !important; }
   tw-sidebar{ display:none !important; }
   html tw-story{
     font-size: 108% !important;
-    padding: 1.6em 6.5% 10em !important;
+    padding: 1.6em 6.5% 8em !important;
     line-height: 1.42em !important;
+    min-height: 100dvh;
+    justify-content: center;
   }
-  tw-passage{ line-height: 1.68 !important; }
+  tw-passage{
+    line-height: 1.68 !important;
+    margin-top: auto !important;
+    margin-bottom: auto !important;
+  }
   .tr-sig{ font-size: 9.5px !important; line-height:1.45 !important; opacity:.38 !important; }
   .tr-head{ font-size: .82em !important; }
   .tr-ledger{ font-size: .86em !important; }
